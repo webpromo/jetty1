@@ -15,8 +15,8 @@ public class Main {
         ServletContextHandler ctx = 
                 new ServletContextHandler(ServletContextHandler.NO_SESSIONS);
                 
-        ctx.setContextPath("/");
-        server.setHandler(ctx);
+                ctx.setContextPath("/");
+                server.setHandler(ctx);
 
         ServletHolder serHol = ctx.addServlet(ServletContainer.class, "/rest/*");
         serHol.setInitOrder(1);
