@@ -6,6 +6,28 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - theQuestions",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "com.zetcode.res.theQuestions",
+            "args": "",
+            "projectName": "JerseyJettyEx"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ourQuestions",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "com.zetcode.res.ourQuestions",
+            "args": "",
+            "projectName": "JerseyJettyEx"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch)",
             "request": "launch",
             "cwd": "${workspaceFolder}",

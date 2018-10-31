@@ -1,37 +1,35 @@
 package com.zetcode.res;
 
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import com.mongodb.Block;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
 import com.mongodb.MongoClient;
-import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
-@Path("questions2")
+@Path("testing")
 public class theQuestions {
-    
-    public static void main(String[] args) {
-        
-        try (MongoClient client = new MongoClient("localhost", 3001)) {
-            
-            MongoDatabase database = client.getDatabase("meteor");
-            MongoCollection<Document> collection = database.getCollection("questions");
-            
-            Document query = new Document();
-            
-            Block<Document> processBlock = new Block<Document>() {
-                @Override
-                public void apply(final Document document) {
-                    System.out.println(document);
-                }
-            };
-            
-            collection.find(query).forEach(processBlock);
-            
-        } catch (MongoException e) {
-            // handle MongoDB exception
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getQuestions() {
+        MongoClient mongoClient = new MongoClient( "localhost" , 3001 );
+        MongoDatabase database = mongoClient.getDatabase("meteor");
+        MongoCollection<Document> collection = database.getCollection("questions");
+        MongoCursor<Document> cursor = collection.find().iterator();
+
+        String returnMe = "";
+        try {
+            while (cursor.hasNext()) {
+                returnMe += cursor.next().toJson();
+            }
+        } finally {
+            cursor.close();
         }
+        return returnMe;
     }
-    
 }

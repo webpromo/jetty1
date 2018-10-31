@@ -31,7 +31,7 @@ public class ourQuestions {
             Block<Document> processBlock = new Block<Document>() {
                 @Override
                 public void apply(final Document document) {
-                    System.out.println(document);
+                    // System.out.println(document);
                 }
             };
             
