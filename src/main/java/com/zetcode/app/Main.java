@@ -32,5 +32,20 @@ public class Main {
 
             server.destroy();
         }
+
+
     }
+
+    // MongoClient mongoClient = MongoClients.create();
+    // MongoDatabase database = mongoClient.getDatabase("meteor");
+    // MongoCollection<Document> collection = database.getCollection("questions");
+    // MongoCursor<Document> cursor = collection.find().iterator();
+    //     try {
+    //         while (cursor.hasNext()) {
+    //             System.out.println(cursor.next().toJson());
+    //         }
+    //     } finally {
+    //         cursor.close();
+    //     }
+
 }
