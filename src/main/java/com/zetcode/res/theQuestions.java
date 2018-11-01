@@ -25,7 +25,14 @@ public class theQuestions {
         String returnMe = "";
         try {
             while (cursor.hasNext()) {
-                returnMe += cursor.next().toJson();
+                Document holder = cursor.next(); 
+                String jsonOut = cursor.next().toJson();
+                Integer category =  (Integer)holder.get("Category");
+                String Text =  (String)holder.get("Text");
+                String leftText =  (String)holder.get("LeftText");
+                // String sumOfAnswers =  (String)holder.get("SumOfAnswers");
+
+returnMe += "Category: "+category+"\nSubject: "+Text+"\nQuestion: "+leftText+"\n ------------------------------------ \n"+jsonOut+"\n\n";
             }
         } finally {
             cursor.close();
