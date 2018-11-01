@@ -24,8 +24,8 @@ public class theQuestions {
         MongoCollection<Document> collection = database.getCollection("questions");
         MongoCursor<Document> cursor = collection.find().iterator();
 
+        String returnMe = "";
         try {
-            String returnMe = "";
             while (cursor.hasNext()) {
                 Document holder = cursor.next(); 
                 // converts the Mongo documents into JSON
@@ -37,11 +37,15 @@ public class theQuestions {
                     // String leftText =  (String)holder.get("LeftText");
                     // String sumOfAnswers =  (String)holder.get("SumOfAnswers");
 
-                returnMe += jsonOut+"\n\n";
+                    returnMe += jsonOut+"\n\n";
+
+                }
+            } finally {
+                cursor.close();
             }
-        } finally {
-            cursor.close();
-        }
+        // if no data to display...
+        if (returnMe == ""){returnMe = "No data found";}
+
         return returnMe;
     }
 }
