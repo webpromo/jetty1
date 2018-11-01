@@ -11,28 +11,33 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
-@Path("testing")
+@Path("questions")
 public class theQuestions {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getQuestions() {
+
+        // connects to the Mongo database & loads the question data
         MongoClient mongoClient = new MongoClient( "localhost" , 3001 );
         MongoDatabase database = mongoClient.getDatabase("meteor");
         MongoCollection<Document> collection = database.getCollection("questions");
         MongoCursor<Document> cursor = collection.find().iterator();
 
-        String returnMe = "";
         try {
+            String returnMe = "";
             while (cursor.hasNext()) {
                 Document holder = cursor.next(); 
+                // converts the Mongo documents into JSON
                 String jsonOut = cursor.next().toJson();
-                Integer category =  (Integer)holder.get("Category");
-                String Text =  (String)holder.get("Text");
-                String leftText =  (String)holder.get("LeftText");
-                // String sumOfAnswers =  (String)holder.get("SumOfAnswers");
 
-returnMe += "Category: "+category+"\nSubject: "+Text+"\nQuestion: "+leftText+"\n ------------------------------------ \n"+jsonOut+"\n\n";
+                // Some optional outputs:
+                    // Integer category =  (Integer)holder.get("Category");  
+                    // String Text =  (String)holder.get("Text");
+                    // String leftText =  (String)holder.get("LeftText");
+                    // String sumOfAnswers =  (String)holder.get("SumOfAnswers");
+
+                returnMe += jsonOut+"\n\n";
             }
         } finally {
             cursor.close();

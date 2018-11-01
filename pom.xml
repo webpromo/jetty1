@@ -1,3 +1,5 @@
+<!-- SOURCE: http://zetcode.com/articles/jerseyembeddedjetty/ -->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
@@ -53,7 +55,7 @@
             <version>9.4.0.v20161208</version>
         </dependency>        
 
-        <!-- added by Jesse -->
+        <!-- These dependencies added by Jesse Fisher Oct.2018 -->
 
         <dependency>
             <groupId>javax.xml.bind</groupId>
