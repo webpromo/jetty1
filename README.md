@@ -1,4 +1,4 @@
-# <p align="center">**PADAWAN Q&As Project**</p>
+# <p align="center">**PADAWAN Qs & As PROJECTS**</p>
 
 This is the Padawan Questions & Answers Output Project, 
 retrieving questions from the Padawan Project's Mongo database 
@@ -30,11 +30,12 @@ A. Run Padawan on your localhost
 B. Run this project on your localhost
 1. [Clone this Repo]
 2. [Install Maven & JDK:](https://www.google.com/search?q=%22install+maven%22)
-3. In your terminal: `cd jetty1`
-4. [Run] `mvn package`
-5. `cd target`
-6. `java -jar JerseyJettyEx.jar`
-7. Fetch the Questions & Answers from Padawan via http://localhost:8080/rest/questions
+3. Install Java: [on Mac:](https://www.google.com/search?q=homebrew+%22brew+cask+install+java%22)
+4. In your terminal: `cd jetty1`
+5. [Run] `mvn package`
+6. `cd target`
+7. `java -jar JerseyJettyEx.jar`
+8. Fetch the Questions & Answers from Padawan via http://localhost:8080/rest/questions
 
 **Licensing**
 - - - - - - - -
