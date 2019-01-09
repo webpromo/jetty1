@@ -26,6 +26,7 @@ public class theQuestions {
 
         String returnMe = "";
         try {
+            returnMe = "[";
             while (cursor.hasNext()) {
                 Document holder = cursor.next(); 
                 // converts the Mongo documents into JSON
@@ -37,12 +38,14 @@ public class theQuestions {
                     // String leftText =  (String)holder.get("LeftText");
                     // String sumOfAnswers =  (String)holder.get("SumOfAnswers");
 
-                    returnMe += jsonOut+"\n\n";
+                    returnMe += jsonOut+",\n\n";
 
                 }
             } finally {
                 cursor.close();
             }
+            returnMe = returnMe.substring(0, returnMe.length() - 3);
+            returnMe += " ]";
         // if no data to display...
         if (returnMe == ""){returnMe = "No data found";}
 
